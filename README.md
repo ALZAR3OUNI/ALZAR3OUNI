@@ -3,7 +3,7 @@
 Networking and Security Engineering student at **Ajman University** (UAE).
 I work on Odoo e-commerce and operations systems, using AI-assisted development.
 
-**Core stack:** Python · Odoo (ORM, QWeb, OWL/JavaScript) · PostgreSQL · Flutter/Dart · React · Node.js · MongoDB · REST/JSON-RPC · Git
+**Core stack:** Python · Odoo (ORM, QWeb, OWL/JavaScript) · PostgreSQL · Flutter/Dart · REST/JSON-RPC · Git
 
 > Most of my code is in **private repositories**. Access is available on request — send me your GitHub username and I'll add you as a collaborator.
 
@@ -36,12 +36,3 @@ Odoo 17 · Python · QWeb · OWL · PostgreSQL · 🔒 Private repository — ac
 ## 📱 Games Store — Mobile App
 Flutter app (Arabic/English) for the store's customers: phone-based sign-in, catalog with category drill-down, product variants, cart and checkout, backed by an Odoo REST API.
 Flutter · Dart · Odoo API · widget & unit tests · 🔒 Private repository — access on request
-
-## 🎓 SANAD — Team project *(team of 4)*
-Procurement-intelligence platform for a maritime company: AI-assisted supplier sourcing, email workflows and quotation comparison.
-React (Vite) + Tailwind · Node.js/Express · MongoDB · Google Gemini · deployed on Railway — **live at [sanaad.app](https://www.sanaad.app)**
-
-## 📚 Academic work
-- **Penetration testing (INT432):** lab exploitation of legacy Windows and Metasploitable systems — report and presentation
-- **Wireless network design:** campus-building network in Cisco Packet Tracer (WLC, RADIUS, IoT, multiple SSIDs)
-- **Computer ethics (INT306):** digital consent and data-privacy case study
