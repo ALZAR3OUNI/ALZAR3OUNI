@@ -1,7 +1,7 @@
 # Hi, I'm Omran Alzarouni 👋
 
-Final-year **Information Technology** student at **Ajman University** (UAE) and the developer-owner of a computer retail business in Ajman.
-I build full-stack business software: e-commerce, POS and accounting automation on **Odoo**, mobile apps with **Flutter**, and AI-assisted products.
+Final-year **Information Technology** student at **Ajman University** (UAE).
+I build business software: e-commerce, POS and accounting automation on **Odoo**, mobile apps with **Flutter**, and AI-assisted products.
 
 **Core stack:** Python · Odoo (ORM, QWeb, OWL/JavaScript) · PostgreSQL · Flutter/Dart · React · Node.js · MongoDB · REST/JSON-RPC · Git
 
