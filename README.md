@@ -17,7 +17,7 @@ An auction and product-exchange platform built on **Odoo 19** that connects to O
 - Python · Odoo 19 · JavaScript · LightGBM · automated test suite
 - 🔒 Private repository — access on request
 
-## 🛒 Games Store — Odoo 17 modules (71 modules, in production)
+## 🛒 Retail & E-commerce — Odoo 17 modules (71 modules, in production)
 Custom modules powering a live retail business — a mirror of the production branch is kept in a private repository.
 
 | Area | What I built |
@@ -33,6 +33,6 @@ Custom modules powering a live retail business — a mirror of the production br
 
 Odoo 17 · Python · QWeb · OWL · PostgreSQL · 🔒 Private repository — access on request
 
-## 📱 Games Store — Mobile App
+## 📱 E-commerce Mobile App
 Flutter app (Arabic/English) for the store's customers: phone-based sign-in, catalog with category drill-down, product variants, cart and checkout, backed by an Odoo REST API.
 Flutter · Dart · Odoo API · widget & unit tests · 🔒 Private repository — access on request
