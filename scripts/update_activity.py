@@ -53,10 +53,10 @@ def draw(total, days, m):
             if day > last:
                 continue
             x, y = x0 + wk * (s + g), y0 + d * (s + g)
-            base.append(f'<rect x="{x}" y="{y}" width="{s}" height="{s}" rx="3" fill="{m["levels"][0]}"/>')
+            base.append(f'<rect class="c" style="animation-delay:{wk * 7 / 53:.2f}s" x="{x}" y="{y}" width="{s}" height="{s}" rx="3" fill="{m["levels"][0]}"/>')
             lv = days.get(day, 0)
             if lv:
-                eat.append(f'<rect x="{x}" y="{y}" width="{s}" height="{s}" rx="3" fill="{m["levels"][lv]}"/>')
+                eat.append(f'<rect class="c" style="animation-delay:{wk * 7 / 53:.2f}s" x="{x}" y="{y}" width="{s}" height="{s}" rx="3" fill="{m["levels"][lv]}"/>')
             pts.append(f"{x} {y}")
             k += 1
         first = start + dt.timedelta(days=wk * 7)
@@ -78,7 +78,8 @@ def draw(total, days, m):
             f'<defs><filter id="blur" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="46"/></filter>'
             f'<clipPath id="clip"><rect width="{w}" height="{h}" rx="22"/></clipPath>'
             f'<linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="{m["shine"]}"/><stop offset="0.45" stop-color="#fff" stop-opacity="0.02"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>{trail}</defs>'
-            f'<style>text{{font-family:{FONT}}}</style>'
+            f'<style>text{{font-family:{FONT}}}'
+            '.c{animation:lift 7s ease-out infinite}@keyframes lift{0%{transform:translateY(0)}2.5%{transform:translateY(-7px)}8%{transform:translateY(0)}100%{transform:translateY(0)}}@media (prefers-reduced-motion:reduce){.c{animation:none}}</style>'
             f'<g clip-path="url(#clip)"><g filter="url(#blur)" opacity="{m["blob_op"]}">{blobs}</g>'
             f'<rect width="{w}" height="{h}" fill="{m["panel"]}"/><rect width="{w}" height="{h}" fill="url(#shine)"/></g>'
             f'<rect x="0.75" y="0.75" width="{w - 1.5}" height="{h - 1.5}" rx="22" fill="none" stroke="{m["border"]}" stroke-width="1.5"/>'
