@@ -78,7 +78,7 @@ def draw(total, days, m):
             f'<clipPath id="clip"><rect width="{w}" height="{h}" rx="22"/></clipPath>'
             f'<linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="{m["shine"]}"/><stop offset="0.45" stop-color="#fff" stop-opacity="0.02"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>'
             f'<style>text{{font-family:{FONT}}}.e{{animation:eat {LOOP}s linear infinite}}'
-            '@keyframes eat{0%{opacity:1}0.4%{opacity:0}88%{opacity:0}92%{opacity:1}100%{opacity:1}}'
+            '@keyframes eat{0%{opacity:1}0.4%{opacity:0}11%{opacity:0}15%{opacity:1}100%{opacity:1}}'
             '@media (prefers-reduced-motion:reduce){.e{animation:none}}</style>'
             f'<g clip-path="url(#clip)"><g filter="url(#blur)" opacity="{m["blob_op"]}">{blobs}</g>'
             f'<rect width="{w}" height="{h}" fill="{m["panel"]}"/><rect width="{w}" height="{h}" fill="url(#shine)"/></g>'
