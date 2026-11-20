@@ -53,10 +53,10 @@ def draw(total, days, m):
             if day > last:
                 continue
             x, y = x0 + wk * (s + g), y0 + d * (s + g)
-            base.append(f'<rect class="c" style="animation-delay:{wk * 7 / 53:.2f}s" x="{x}" y="{y}" width="{s}" height="{s}" rx="3" fill="{m["levels"][0]}"/>')
+            base.append(f'<rect class="c" style="animation-delay:{wk * 7 / 53:.2f}s,{wk * 7 / 53 + 7:.2f}s" x="{x}" y="{y}" width="{s}" height="{s}" rx="3" fill="{m["levels"][0]}"/>')
             lv = days.get(day, 0)
             if lv:
-                eat.append(f'<rect class="c" style="animation-delay:{wk * 7 / 53:.2f}s" x="{x}" y="{y}" width="{s}" height="{s}" rx="3" fill="{m["levels"][lv]}"/>')
+                eat.append(f'<rect class="c" style="animation-delay:{wk * 7 / 53:.2f}s,{wk * 7 / 53 + 7:.2f}s" x="{x}" y="{y}" width="{s}" height="{s}" rx="3" fill="{m["levels"][lv]}"/>')
             pts.append(f"{x} {y}")
             k += 1
         first = start + dt.timedelta(days=wk * 7)
@@ -79,7 +79,7 @@ def draw(total, days, m):
             f'<clipPath id="clip"><rect width="{w}" height="{h}" rx="22"/></clipPath>'
             f'<linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="{m["shine"]}"/><stop offset="0.45" stop-color="#fff" stop-opacity="0.02"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>{trail}</defs>'
             f'<style>text{{font-family:{FONT}}}'
-            '.c{animation:lift 7s ease-out infinite}@keyframes lift{0%{transform:translateY(0)}2.5%{transform:translateY(-7px)}8%{transform:translateY(0)}100%{transform:translateY(0)}}@media (prefers-reduced-motion:reduce){.c{animation:none}}</style>'
+            f'.c{{opacity:0;stroke:{m["head"]};stroke-width:1.5;stroke-opacity:0;animation:show .5s ease-out both,lift 7s ease-out infinite}}@keyframes show{{from{{opacity:0;transform:translateY(7px)}}to{{opacity:1;transform:translateY(0)}}}}@keyframes lift{{0%{{transform:translateY(0);stroke-opacity:0}}2.5%{{transform:translateY(-7px);stroke-opacity:.9}}8%{{transform:translateY(0);stroke-opacity:0}}100%{{transform:translateY(0);stroke-opacity:0}}}}@media (prefers-reduced-motion:reduce){{.c{{animation:none;opacity:1}}}}</style>'
             f'<g clip-path="url(#clip)"><g filter="url(#blur)" opacity="{m["blob_op"]}">{blobs}</g>'
             f'<rect width="{w}" height="{h}" fill="{m["panel"]}"/><rect width="{w}" height="{h}" fill="url(#shine)"/></g>'
             f'<rect x="0.75" y="0.75" width="{w - 1.5}" height="{h - 1.5}" rx="22" fill="none" stroke="{m["border"]}" stroke-width="1.5"/>'
