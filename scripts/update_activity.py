@@ -56,18 +56,19 @@ def draw(total, days, m):
             base.append(f'<rect x="{x}" y="{y}" width="{s}" height="{s}" rx="3" fill="{m["levels"][0]}"/>')
             lv = days.get(day, 0)
             if lv:
-                eat.append(f'<rect class="e" style="animation-delay:{k / n * TRAVEL:.2f}s" x="{x}" y="{y}" width="{s}" height="{s}" rx="3" fill="{m["levels"][lv]}"/>')
+                eat.append(f'<rect x="{x}" y="{y}" width="{s}" height="{s}" rx="3" fill="{m["levels"][lv]}"/>')
             pts.append(f"{x} {y}")
             k += 1
         first = start + dt.timedelta(days=wk * 7)
         if first.month != last_month and first.day <= 7:
             labels.append(f'<text x="{x0 + wk * (s + g)}" y="{y0 - 12}" font-size="13" fill="{m["muted"]}">{MONTHS[first.month - 1]}</text>')
             last_month = first.month
-    path, step = "M" + " L".join(pts), TRAVEL / n
-    snake = "".join(
-        f'<rect width="{s}" height="{s}" rx="4" fill="{m["head"] if i == 0 else m["body"]}" opacity="{1 - i * 0.18:.2f}">'
-        f'<animateMotion dur="{LOOP}s" begin="{(i * step) - LOOP if i else 0:.3f}s" repeatCount="indefinite" calcMode="linear" keyPoints="0;1;1" keyTimes="0;{TRAVEL / LOOP:.2f};1" path="{path}"/></rect>'
-        for i in range(3, -1, -1))
+    # a line that sweeps the graph from left to right, with a soft trail behind it
+    span, top, tall = 53 * (s + g), y0 - 5, 7 * (s + g) + 6
+    fade = '<animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.06;0.92;1" dur="7s" repeatCount="indefinite"/>'
+    sweep = (f'<rect x="{x0 - 30}" y="{top}" width="30" height="{tall}" fill="url(#trail)" opacity="0"><animate attributeName="x" values="{x0 - 30};{x0 + span - 30}" dur="7s" repeatCount="indefinite"/>{fade}</rect>'
+             f'<rect x="{x0}" y="{top}" width="2.5" height="{tall}" rx="1.25" fill="{m["head"]}" opacity="0"><animate attributeName="x" values="{x0};{x0 + span}" dur="7s" repeatCount="indefinite"/>{fade}</rect>')
+    trail = f'<linearGradient id="trail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{m["head"]}" stop-opacity="0"/><stop offset="1" stop-color="{m["head"]}" stop-opacity="0.22"/></linearGradient>'
     weekdays = "".join(f'<text x="52" y="{y0 + d * (s + g) + 12}" font-size="12" fill="{m["muted"]}">{t}</text>' for d, t in ((1, "Mon"), (3, "Wed"), (5, "Fri")))
     title = f"{total} contributions in the last year"
     b = m["blobs"]
@@ -76,14 +77,12 @@ def draw(total, days, m):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="{html.escape(title)}">'
             f'<defs><filter id="blur" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="46"/></filter>'
             f'<clipPath id="clip"><rect width="{w}" height="{h}" rx="22"/></clipPath>'
-            f'<linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="{m["shine"]}"/><stop offset="0.45" stop-color="#fff" stop-opacity="0.02"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>'
-            f'<style>text{{font-family:{FONT}}}.e{{animation:eat {LOOP}s linear infinite}}'
-            '@keyframes eat{0%{opacity:1}0.4%{opacity:0}11%{opacity:0}15%{opacity:1}100%{opacity:1}}'
-            '@media (prefers-reduced-motion:reduce){.e{animation:none}}</style>'
+            f'<linearGradient id="shine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="{m["shine"]}"/><stop offset="0.45" stop-color="#fff" stop-opacity="0.02"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>{trail}</defs>'
+            f'<style>text{{font-family:{FONT}}}</style>'
             f'<g clip-path="url(#clip)"><g filter="url(#blur)" opacity="{m["blob_op"]}">{blobs}</g>'
             f'<rect width="{w}" height="{h}" fill="{m["panel"]}"/><rect width="{w}" height="{h}" fill="url(#shine)"/></g>'
             f'<rect x="0.75" y="0.75" width="{w - 1.5}" height="{h - 1.5}" rx="22" fill="none" stroke="{m["border"]}" stroke-width="1.5"/>'
-            f'<text x="52" y="60" font-size="24" font-weight="700" fill="{m["ink"]}">{title}</text>{"".join(labels)}{weekdays}{"".join(base)}{"".join(eat)}{snake}</svg>')
+            f'<text x="52" y="60" font-size="24" font-weight="700" fill="{m["ink"]}">{title}</text>{"".join(labels)}{weekdays}{"".join(base)}{"".join(eat)}{sweep}</svg>')
 
 
 if __name__ == "__main__":
