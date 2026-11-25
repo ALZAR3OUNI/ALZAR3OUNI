@@ -1,19 +1,39 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <img src="assets/banner-light.svg" alt="Omran Al Zarouni — Networking and Security Engineering student, Ajman University" width="100%">
-</picture>
+<h1 align="center">Hey 👋 I'm Omran Al Zarouni</h1>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/activity-dark.svg">
-  <img src="assets/activity-light.svg" alt="My contribution graph for the last year" width="100%">
-</picture>
+<p align="center">
+  <img src="assets/hero.svg" alt="A pixel-art desk at night: code on the screen, a city outside the window" width="100%">
+</p>
 
-## About
+## 📌 About Me
 
 Networking and Security Engineering student at **Ajman University** (UAE).
 I work on Odoo e-commerce and operations systems, using AI-assisted development.
 
-## Projects
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="assets/signal.svg" alt="Profile signal: contributions, active days, longest streak, repositories" width="100%">
+</p>
+<p align="center">
+  <img src="assets/stack.svg" alt="Language stack across my repositories" width="100%">
+</p>
+<p align="center">
+  <img src="assets/highlights.svg" alt="Highlights: hackathon, retail systems, local AI" width="100%">
+</p>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/activity-dark.svg">
+    <img src="assets/activity-light.svg" alt="My contribution graph for the last year" width="100%">
+  </picture>
+</p>
+
+## 🛠 Languages & Tools
+
+<p align="center">
+  <img src="assets/tools.svg" alt="Python, JavaScript, Dart, SQL, Odoo ORM, QWeb, OWL, PostgreSQL, Flutter, REST/JSON-RPC, Git" width="100%">
+</p>
+
+## 🚀 Projects
 
 ### Zodoo — intelligent auction and barter platform
 
@@ -41,8 +61,8 @@ Flutter app (Arabic/English) for the store's customers, backed by an Odoo REST A
 - Phone-based sign-in, catalog with category drill-down, product variants, cart and checkout.
 - Widget and unit tests.
 
-## Stack
+## 🔗 Connect with Me
 
-Python · Odoo (ORM, QWeb, OWL/JavaScript) · PostgreSQL · Flutter/Dart · REST/JSON-RPC · Git
+[LinkedIn](https://www.linkedin.com/in/omran-al-zarouni-121ab1374)
 
 > Most of my code is in **private repositories**. Send me your GitHub username and I'll add you as a collaborator.
