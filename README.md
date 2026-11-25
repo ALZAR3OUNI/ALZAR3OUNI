@@ -63,6 +63,6 @@ Flutter app (Arabic/English) for the store's customers, backed by an Odoo REST A
 
 ## 🔗 Connect with Me
 
-[LinkedIn](https://www.linkedin.com/in/omran-al-zarouni-121ab1374)
+[LinkedIn](https://www.linkedin.com/in/omran-al-zarouni-121ab1374) · [Gmail](mailto:omranalz1014@gmail.com)
 
 > Most of my code is in **private repositories**. Send me your GitHub username and I'll add you as a collaborator.
